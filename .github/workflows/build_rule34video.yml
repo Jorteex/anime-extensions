@@ -1,0 +1,35 @@
+name: Build Rule34Video
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+
+jobs:
+  build-rule34video:
+    name: Build Rule34Video
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up Java
+        uses: actions/setup-java@v6
+        with:
+          java-version: 25
+          distribution: temurin
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build Rule34Video module
+        run: ./gradlew :src:en:rule34video
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rule34video-apk
+          path: "**/*.apk"
+          retention-days: 7
