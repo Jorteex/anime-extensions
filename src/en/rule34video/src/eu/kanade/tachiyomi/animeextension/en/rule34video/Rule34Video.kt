@@ -1,6 +1,5 @@
 package eu.kanade.tachiyomi.animeextension.en.rule34video
 
-import keiyoushi.utils.parseAs
 import android.util.Log
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
