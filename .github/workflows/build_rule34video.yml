@@ -24,6 +24,9 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Format Kotlin files
+        run: ./gradlew :src:en:rule34video:spotlessApply
+
       - name: Build Rule34Video module
         run: ./gradlew :src:en:rule34video:assembleDebug
 
